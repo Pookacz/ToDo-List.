@@ -4,14 +4,12 @@
     position: relative;
     flex-shrink: 0;
   }
-  
   .formItemBar {
     width: 100%;
     height: 2px;
     background: #7d7d7d;
     transition: 0.1s all;
   }
-  
   .label {
     color: #E94560;
     font-weight: 600;
@@ -21,7 +19,6 @@
     transition: 0.2s ease-out all;
     font-size: 16px;
   }
-  
   .input,
   .textarea {
     color: #7d7d7d;
@@ -31,29 +28,24 @@
     width: 100%;
     background: none;
   }
-  
   .textarea {
     resize: none;
     min-height: 150px;
   }
-  
   .input:focus,
   .textarea:focus {
     outline: none;
   }
-  
   .input:focus + .label,
   .textarea:focus + .label {
     top: -22px;
     font-size: 13px;
   }
-  
   .input:not(:placeholder-shown) + .label,
   .textarea:not(:placeholder-shown) + .label {
     top: -22px;
     font-size: 13px;
   }
-  
   .input:focus ~ .formItemBar,
   .textarea:focus ~ .formItemBar {
     background: #E94560;
