@@ -43,7 +43,7 @@ class Form extends React.Component {
           <div className={styles.wrapper}>
             <h1 className={styles.title}>{type}</h1>
             <form
-              className={styles.form}
+              className={styles.wrapper}
               autoComplete="off"
               onSubmit={(e) => context.addNewItem(e, this.state)}
             >

@@ -1,17 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import AppContext from '../../context';
 import Menu from '../../components/Menu/Menu';
 import PopUp from '../../components/PopUp/PopUp';
-import NotesView from '../Notes/NotesView';
-import MondayView from '../Monday/MondayView';
-import TuesdayView from '../Tuesday/TuesdayView';
-import WednesdayView from '../Wednesday/WednesdayView';
-import ThursdayView from '../Thursday/ThursdayView';
-import FridayView from '../Friday/FridayView';
-import SaturdayView from '../Saturday/SaturdayView';
-import SundayView from '../Sunday/SundayView';
+import MenuRoute from '../../components/Menu/MenuRoute';
 
 class Root extends React.Component {
   state = {
@@ -25,6 +18,17 @@ class Root extends React.Component {
     sunday: [],
     isPopUpOpen: false,
   };
+
+  linkInfo = [
+    { navTitle: 'Notes', navLink: '/', navType: 'notes' },
+    { navTitle: 'Monday', navLink: '/monday', navType: 'monday' },
+    { navTitle: 'Tuesday', navLink: '/tuesday', navType: 'tuesday' },
+    { navTitle: 'Wednesday', navLink: '/wednesday', navType: 'wednesday' },
+    { navTitle: 'Thursday', navLink: '/thursday', navType: 'thursday' },
+    { navTitle: 'Friday', navLink: '/friday', navType: 'friday' },
+    { navTitle: 'Saturday', navLink: '/saturday', navType: 'saturday' },
+    { navTitle: 'Sunday', navLink: '/sunday', navType: 'sunday' },
+  ];
 
   addNewItem = (e, newItem) => {
     e.preventDefault();
@@ -59,22 +63,14 @@ class Root extends React.Component {
     const contextElements = {
       addNewItem: this.addNewItem,
       deleteTask: this.deleteTask.bind(this),
+      linkInfo: this.linkInfo,
       ...this.state,
     };
     return (
       <BrowserRouter>
         <AppContext.Provider value={contextElements}>
           <Menu openPopUp={this.openPopUp} />
-          <Switch>
-            <Route exact path="/" component={NotesView} />
-            <Route path="/monday" component={MondayView} />
-            <Route path="/tuesday" component={TuesdayView} />
-            <Route path="/wednesday" component={WednesdayView} />
-            <Route path="/thursday" component={ThursdayView} />
-            <Route path="/friday" component={FridayView} />
-            <Route path="/saturday" component={SaturdayView} />
-            <Route path="/sunday" component={SundayView} />
-          </Switch>
+          <MenuRoute />
           {isPopUpOpen && <PopUp closePopUp={this.closePopUp} />}
         </AppContext.Provider>
       </BrowserRouter>

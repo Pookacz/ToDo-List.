@@ -1,4 +1,4 @@
-.button{
+.wrapper{
     width: 75px;
     height: 30px;
     border: 2px solid #E94560;
@@ -9,7 +9,7 @@
     cursor: pointer;
     border-radius: 7.5px;
 }
-.button:hover{
+.wrapper:hover{
     color: #fff;
     background-color: #E94560;
 }

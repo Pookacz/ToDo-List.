@@ -12,7 +12,7 @@ const Page = ({ items }) => (
           {(context) => (
             <li className={styles.wrapper}>
               <PageItems {...item} />
-              <Button onClick={() => context.deleteTask(items, item)} key={item.ass}>
+              <Button onClick={() => context.deleteTask(items, item)}>
                 {item.type === 'notes' ? 'delete' : 'Done!'}
               </Button>
             </li>
