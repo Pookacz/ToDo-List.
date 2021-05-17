@@ -121,7 +121,7 @@ class Form extends React.Component {
                 label="title"
                 value={this.state.title}
                 onChange={this.handleInputChange}
-                maxLength={30}
+                maxLength={100}
               />
               {type === radioTypes.notes ? (
                 <Input
